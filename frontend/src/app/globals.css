@@ -42,6 +42,10 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
+  /* Custom Colors for Cards */
+  --color-card-muted: var(--card-muted);
+  --color-card-muted-foreground: var(--card-muted-foreground);
+
   /* Custom Drop Shadows */
   --drop-shadow-selected: var(--drop-shadow-selected);
   --drop-shadow-normal: var(--drop-shadow-normal);
@@ -82,9 +86,17 @@
 
 :root, .dark {
   --background: hsl(0 0% 5%);
-  --foreground: hsl(0 0% 100%);
-  --card: hsl(0 0% 15%);
+  --foreground: hsl(0, 0%, 100%);
+
+  --card: hsl(0 0 15%);
   --card-foreground: hsl(0 0% 100%);
+  --card-muted: hsl(0 0% 15%);
+  --card-muted-foreground: hsl(0 0% 85%);
+  /* --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(0 0% 0%);
+  --card-muted: hsl(0 0% 85%);
+  --card-muted-foreground: hsl(0 0% 15%); */
+
   --popover: hsl(0 0% 12%);
   --popover-foreground: hsl(0 0% 100%);
   --primary: hsl(29 77% 47%);
@@ -109,12 +121,15 @@
   --radius: 1rem;
 
   /* Custom Drop Shadows */
-  --drop-shadow-selected: 0 15px 20px oklch(0.6 0.2541 298.01);
-  --drop-shadow-normal: 0 15px 20px oklch(0.59 0.0721 208.92 / 50%);
-  --drop-shadow-hover: 0 15px 20px oklch(0.59 0.0721 208.92);
+  --drop-shadow-selected: 0 15px 20px hsl(266.12 100% 64%);
+  --drop-shadow-normal: 0 15px 20px hsl(188.16 38% 42% / 0.5);
+  --drop-shadow-hover: 0 15px 30px hsl(188.16 38% 42%);
 }
 
 @layer utilities {
+  /* button:hover:not(:disabled) {
+    cursor: pointer;
+  } */
   button:hover {
     cursor: pointer;
   }

@@ -1,4 +1,3 @@
-import Navigation from "@/components/ui/navigation";
 import { Button } from "@/components/ui/button";
 import {
     Navbar as NavbarComponent,
@@ -7,11 +6,8 @@ import {
 } from "@/components/ui/navbar";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import LaunchUI from "@/components/logos/launch-ui";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { NavigationMenu, NavigationMenuList } from "@radix-ui/react-navigation-menu";
-import { NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "./ui/navigation-menu";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -43,16 +39,11 @@ interface NavbarProps {
 export default function Navbar({
     logo = "/images/logo-square.png",
     name = "CDL Insider",
-    homeUrl = '/#',
-    mobileLinks = [
-        { text: "Stats", href: '/stats' },
-        { text: "Players", href: '/players' },
-        { text: "Teams", href: '/teams' },
-    ],
+    homeUrl = '/',
     actions = [
-        { text: "Stats", href: '/', isButton: true },
-        { text: "Players", href: '/', isButton: true },
-        { text: "Teams", href: '/', isButton: true }
+        { text: "Stats", href: '/stats', isButton: true },
+        { text: "Players", href: '/players', isButton: true },
+        { text: "Teams", href: '/teams', isButton: true }
 
         // {
         //   text: "Get Started",
@@ -74,7 +65,7 @@ export default function Navbar({
                     <NavbarLeft>
                         <a
                             href={homeUrl}
-                            className="flex items-center gap-2 text-xl font-bold"
+                            className="flex items-center gap-2 text-xl font-bold hover:drop-shadow-hover"
                         >
                             <Image src={logo} width={75} height={75} alt={"CDL Insider Logo"} />
                             {/* {name} */}
@@ -85,8 +76,8 @@ export default function Navbar({
                             action.isButton ? (
                                 <Button
                                     key={index}
-                                    variant={action.variant || "ghost"}
-                                    className="hidden md:block hover:text-primary-foreground/90"
+                                    variant={action.variant || "link"}
+                                    className="hidden md:block text-foreground hover:text-primary-foreground/90"
                                     asChild
                                 >
                                     <a href={action.href}>
@@ -124,7 +115,7 @@ export default function Navbar({
                                     >
                                         <span>{name}</span>
                                     </a>
-                                    {mobileLinks.map((link, index) => (
+                                    {actions.map((link, index) => (
                                         <Button asChild
                                             key={index}
                                             variant="ghost"
