@@ -3,10 +3,10 @@ import * as React from "react"
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ChevronsDown } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import Image from "next/image"
-import { Button } from "./ui/button"
+import { Button } from "../ui/button"
 
 type CarouselProps = {
     slides: {
@@ -14,11 +14,12 @@ type CarouselProps = {
         heading: string
         description: string
         buttonText: string
-    }[]
+    }[],
+    scrollTargetId: string,
     options?: EmblaOptionsType
 }
 
-export function HeroCarousel({ slides, options }: CarouselProps) {
+export function HeroCarousel({ slides, scrollTargetId, options }: CarouselProps) {
     const autoplayOptions = React.useMemo(() =>
         Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true }),
         []
@@ -91,8 +92,8 @@ export function HeroCarousel({ slides, options }: CarouselProps) {
                                     priority={index === 0}
                                     className="object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/70" />
-                                <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/70" />
+                                <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background/100" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-background/0 via-background/60 to-background/80" />
                             </div>
 
                             {/* Text Content */}
@@ -118,8 +119,7 @@ export function HeroCarousel({ slides, options }: CarouselProps) {
             </div>
 
             {/* Navigation Dots */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex gap-2 p-1 text-center bg-background/50 hover:drop-shadow-normal rounded-full">
-
+            <div className="absolute bottom-40 left-1/2 transform -translate-x-1/2 z-50 flex gap-2 p-1 text-center bg-background/50 hover:drop-shadow-normal rounded-full">
                 <button
                     onClick={scrollPrev}
                     className="hover:drop-shadow-selected bg-background/40 rounded-full hover:cursor-pointer transition-all"
@@ -146,6 +146,23 @@ export function HeroCarousel({ slides, options }: CarouselProps) {
                     disabled={isAnimating}
                 >
                     <ChevronRight className="w-8 h-8 text-white" />
+                </button>
+            </div>
+
+
+            {/* Scroll Down Button */}
+            <div className="absolute hidden md:block bottom-8 left-1/2 transform -transform-x-1/2 z-50 hover:drop-shadow-hover">
+                <button
+                    onClick={() => {
+                        const el = document.getElementById(scrollTargetId)
+                        window.scrollTo({
+                            top: el?.offsetTop,
+                            behavior: 'smooth'
+                        })
+                    }}
+                    className="animate-bounce"
+                >
+                    <ChevronsDown className="w-8 h-8 text-white" />
                 </button>
             </div>
         </div>
