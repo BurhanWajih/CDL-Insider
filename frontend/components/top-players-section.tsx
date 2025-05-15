@@ -7,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import Link from "next/link"
 import Image from "next/image"
 import type { Player, StatCategory } from "@/lib/types"
+import { getPlayerImageUrl } from "@/lib/image-utils"
 
 export default function TopPlayersSection() {
   const [activeTab, setActiveTab] = useState<StatCategory>("overall")
@@ -144,7 +145,7 @@ function TopPlayersList({
             <div className="flex items-center">
               <div className="mr-3 h-8 w-8 overflow-hidden rounded-full bg-zinc-700">
                 <Image
-                  src={`/placeholder.svg?height=32&width=32`}
+                  src={getPlayerImageUrl(player.name) || `/placeholder.svg?height=32&width=32`}
                   alt={player.name || "Player"}
                   width={32}
                   height={32}

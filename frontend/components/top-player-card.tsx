@@ -19,7 +19,7 @@ export default function TopPlayerCard({ player }: TopPlayerCardProps) {
           src={getPlayerImageUrl(player.name) || "/placeholder.svg?height=300&width=300"}
           alt={player.name}
           fill
-          className="object-cover object-center"
+          className="object-contain"
           onError={(e) => handleImageError(e, 300, 300)}
         />
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
@@ -36,7 +36,9 @@ export default function TopPlayerCard({ player }: TopPlayerCardProps) {
             )}
             <h3 className="text-xl font-bold">{player.name}</h3>
           </div>
-          <p className="text-sm text-zinc-400">{player.team ? player.team.teamName : "Free Agent"}</p>
+          <Link href={`/teams/${player.team.slug}`} className="text-sm text-zinc-400 hover:text-zinc-200">
+            {player.team ? player.team.teamName : "Free Agent"}
+          </Link>
         </div>
       </div>
       <CardContent className="p-4">

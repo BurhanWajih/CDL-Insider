@@ -413,7 +413,7 @@ export default function PlayerStatsTable({ category, limit = 20, page = 1, searc
                                       </span>
                                     </div>
                                     <Progress
-                                      value={Math.min(playerDetails[player.id].overall_rating || 0, 100)}
+                                      value={Math.min((playerDetails[player.id].overall_rating || 0) * 80, 100)}
                                       className="h-1.5 bg-zinc-700"
                                     >
                                       <div className="h-full bg-orange-500" />

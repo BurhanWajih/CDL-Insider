@@ -34,7 +34,7 @@ export default function HeroCarousel() {
       description:
         "The road to the championship begins now. Follow your favorite teams as they compete for the ultimate prize.",
       backgroundImage: "/images/hero/championship.jpg",
-      buttonText: "View Schedule",
+      buttonText: "View Season",
       buttonLink: "/teams-standings",
     },
   ]

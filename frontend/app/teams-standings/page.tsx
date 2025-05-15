@@ -157,13 +157,13 @@ export default function TeamsStandingsPage() {
                         <TableCell className="text-center font-medium">{index + 1}</TableCell>
                         <TableCell>
                           <Link href={`/teams/${team.slug}`} className="flex items-center">
-                            <div className="mr-3 h-8 w-8 overflow-hidden rounded-full bg-zinc-700">
+                            <div className="mr-3 h-8 w-8 overflow-hidden">
                               <Image
                                 src={getTeamImageUrl(team.slug) || "/placeholder.svg"}
                                 alt={team.teamName}
                                 width={32}
                                 height={32}
-                                className="h-full w-full object-cover"
+                                className="h-full w-full object-contain"
                                 onError={(e) => handleImageError(e, 32, 32)}
                               />
                             </div>

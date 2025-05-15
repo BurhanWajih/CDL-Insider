@@ -86,7 +86,7 @@ export default function Footer() {
         >
           <p className="text-sm text-zinc-400">&copy; {new Date().getFullYear()} CDL Insider. All rights reserved.</p>
           <p className="mt-2 text-xs text-zinc-500">
-            This is a fan-made website and is not affiliated with Activision or the Call of Duty League.
+            This website is created by Sohaib Shah and Wajih Us Sama and is not affiliated with Activision or the Call of Duty League.
           </p>
         </motion.div>
       </div>
