@@ -202,7 +202,7 @@ export default function PlayerPage({ params }: PlayerPageProps) {
         transition={{ duration: 0.3, delay: 0.4 }}
       >
         <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="mb-8 grid w-full grid-cols-3 bg-zinc-900 sm:grid-cols-4">
+          <TabsList className="mb-8 grid w-full grid-cols-1 grid-rows-3 md:grid-cols-3 md:grid-rows-1 bg-zinc-900 sm:grid-cols-4">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="hardpoint">Hardpoint</TabsTrigger>
             <TabsTrigger value="search">Search & Destroy</TabsTrigger>

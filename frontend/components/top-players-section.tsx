@@ -56,7 +56,7 @@ export default function TopPlayersSection() {
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="overall" onValueChange={handleTabChange}>
-          <TabsList className="mb-6 grid w-full grid-cols-4 bg-zinc-800">
+          <TabsList className="mb-6 grid w-full grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 bg-zinc-800">
             <TabsTrigger value="overall">Overall</TabsTrigger>
             <TabsTrigger value="hardpoint">Hardpoint</TabsTrigger>
             <TabsTrigger value="search">Search & Destroy</TabsTrigger>

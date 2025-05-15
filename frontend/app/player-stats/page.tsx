@@ -66,7 +66,7 @@ export default function PlayerStatsPage() {
       </Card>
 
       <Tabs defaultValue="all" className="w-full">
-        <TabsList className="mb-8 grid w-full grid-cols-3 bg-zinc-900">
+        <TabsList className="mb-8 grid w-full grid-cols-1 grid-rows-3 md:grid-cols-3 md:grid-rows-1 bg-zinc-900">
           <TabsTrigger value="all">All Players</TabsTrigger>
           <TabsTrigger value="top10">Top 10</TabsTrigger>
           <TabsTrigger value="compare">Compare Players</TabsTrigger>

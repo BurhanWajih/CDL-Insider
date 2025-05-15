@@ -51,7 +51,7 @@ export default function TopPlayersPage() {
       <h1 className="mb-8 text-center text-4xl font-bold">Top Players</h1>
 
       <Tabs defaultValue="overall" onValueChange={handleTabChange} className="w-full">
-        <TabsList className="mb-8 grid w-full grid-cols-4 bg-zinc-900">
+        <TabsList className="mb-8 grid w-full grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 bg-zinc-900">
           <TabsTrigger value="overall">Overall</TabsTrigger>
           <TabsTrigger value="hardpoint">Hardpoint</TabsTrigger>
           <TabsTrigger value="search">Search & Destroy</TabsTrigger>
